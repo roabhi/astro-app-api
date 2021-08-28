@@ -1,0 +1,31 @@
+{
+  "name": "astro-app-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon --config nodemon.json --delay 500ms ./src/app.ts",
+    "build": "tsc",
+    "clean": "rimraf dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "city-timezones": "^1.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "swisseph": "^0.5.16"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/luxon": "^2.0.1",
+    "@types/node": "^16.7.2",
+    "luxon": "^2.0.2",
+    "nodemon": "^2.0.12",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  }
+}
