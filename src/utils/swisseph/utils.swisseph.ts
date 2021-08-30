@@ -26,15 +26,18 @@ const flag = swisseph.SEFLG_SPEED,
       },
       getMin = (_long:number, _deg:number):number => {
         return Math.floor(((_long % 30) - _deg) * 60)
+      },
+      planetIsValid = (_p:Planet):boolean => {        
+        return _p.sign !== 'undefined'
       }
 
 // path to ephemeris data
 swisseph.swe_set_ephe_path (__dirname + '/../ephe')
 
 
-export const allPlanets = (_year:string, _month:string, _day:string, _hour:number):Planet[] => {
+export const allPlanets = (_year:string, _month:string, _day:string, _hour:number | never):Planet[] | [] => {
 
-    //let __res:string = ''
+    // console.log('hour from all Planets is ', _hour)
 
     const planets:Planet[] = []
 
@@ -53,8 +56,8 @@ export const allPlanets = (_year:string, _month:string, _day:string, _hour:numbe
               min: parseInt(`${getMin(body.longitude, getDegree(body.longitude))}`, 10)
 
             }
-
-           planets.push(planet)
+          
+            planetIsValid(planet) ? planets.push(planet) : null           
 
             
         })
@@ -72,7 +75,7 @@ export const allPlanets = (_year:string, _month:string, _day:string, _hour:numbe
 
           }
 
-         planets.push(planet)
+          planetIsValid(planet) ? planets.push(planet) : null 
 
           
         })
@@ -90,7 +93,7 @@ export const allPlanets = (_year:string, _month:string, _day:string, _hour:numbe
 
           }
 
-         planets.push(planet)
+          planetIsValid(planet) ? planets.push(planet) : null 
 
           
         })
@@ -108,7 +111,7 @@ export const allPlanets = (_year:string, _month:string, _day:string, _hour:numbe
 
           }
 
-         planets.push(planet)
+          planetIsValid(planet) ? planets.push(planet) : null 
 
           
         })
@@ -126,7 +129,7 @@ export const allPlanets = (_year:string, _month:string, _day:string, _hour:numbe
 
           }
 
-         planets.push(planet)
+          planetIsValid(planet) ? planets.push(planet) : null 
 
           
         })
@@ -144,7 +147,7 @@ export const allPlanets = (_year:string, _month:string, _day:string, _hour:numbe
 
           }
 
-         planets.push(planet)
+          planetIsValid(planet) ? planets.push(planet) : null 
 
           
         })
@@ -161,7 +164,7 @@ export const allPlanets = (_year:string, _month:string, _day:string, _hour:numbe
 
             }
 
-           planets.push(planet)
+            planetIsValid(planet) ? planets.push(planet) : null 
           
         })
         
@@ -170,10 +173,16 @@ export const allPlanets = (_year:string, _month:string, _day:string, _hour:numbe
 
 
 
-    if(!_pos){
-        throw new Error('no positions available')
-    }
+    //console.log('pos is ', _pos)
+
+    // if(planets.length < 1){
+    //   throw new Error('no positions available')
+    // }
+
+    //console.log(planets[0])
 
     return planets
+
+    
 
 }

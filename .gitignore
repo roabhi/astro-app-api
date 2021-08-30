@@ -1,3 +1,7 @@
-node_modules
+node_modules/*
+!node_modules/swisseph/
+node_modules/swisseph/*
+!node_modules/swisseph/lib/
+node_modules/swisseph/lib/*
 !node_modules/swisseph/lib/swisseph.d.ts
 

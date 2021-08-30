@@ -2,6 +2,7 @@ import cors from 'cors'
 import express from 'express'
 
 import { getFullPlanetsPosition } from '../database/database'
+import { InvalidPlanet } from '../types/types'
 
 export default function createServer () {
 
@@ -23,19 +24,20 @@ export default function createServer () {
 
     app.get('/planets/positions/all/:country/:city/:day/:month/:year/:hour/:minute', (req, res) => {
          try{
-             const data = getFullPlanetsPosition(req.params.country, req.params.city, req.params.day, req.params.month, req.params.year, req.params.hour, req.params.minute)
+            const data = getFullPlanetsPosition(req.params.country, req.params.city, req.params.day, req.params.month, req.params.year, req.params.hour, req.params.minute)
 
-            //res.json({data})
-            res.json(JSON.parse(data))
+            
+            res.json({data})
+            
+            
 
-            // res.json({
-            //     "results" : data
-            // });
 
          }catch (e) {
             //  res.status(400).json({
-            //      error: e.message
+            //      error:e.message
             //  })
+
+            res.status(400).json({data:[{error:'no matches found, please check you city spelling'}]})
          } 
     })
 

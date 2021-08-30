@@ -1,15 +1,13 @@
-export interface Planet {
+export interface Planet  {
     name:string,
     sign:string,
     deg:number,
     min:number
 }
 
-
-// export interface Planets {
-    
-// }
-
+export interface InvalidPlanet  {
+    error:string
+}
 
 export interface City {
     city:string,
