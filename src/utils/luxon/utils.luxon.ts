@@ -16,8 +16,6 @@ export const getSwissEphReadyHour = (_hour:string, _minutes:string, _offset:numb
 
 getOffsetFromDate = (_year:string, _month:string, _day:string, _hour:string, _minutes:string, _iana:string):number | never => {
 
-    console.log('iana is ',_iana)
-    
     const _offset:DateTime = DateTime.fromObject({year: parseInt(_year,10), month: parseInt(_month, 10), day: parseInt(_day, 10), hour: parseInt(_hour, 10), minute: parseInt(_minutes, 10) }, { zone: _iana})
 
     // console.log('offset is ',_offset.offset)
