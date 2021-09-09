@@ -15,7 +15,7 @@
     "city-timezones": "^1.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "swisseph": "^0.5.16"
+    "swisseph": "git://github.com/roabhi/swisseph.git#master"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
