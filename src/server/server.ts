@@ -2,7 +2,6 @@ import cors from 'cors'
 import express from 'express'
 
 import { getFullPlanetsPosition } from '../database/database'
-import { InvalidPlanet } from '../types/types'
 
 export default function createServer () {
 
