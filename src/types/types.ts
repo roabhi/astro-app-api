@@ -5,10 +5,6 @@ export interface Planet  {
     min:number
 }
 
-export interface InvalidPlanet  {
-    error:string
-}
-
 export interface City {
     city:string,
     city_ascii:string,
